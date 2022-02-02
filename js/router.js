@@ -14,8 +14,9 @@ const routes = {
 const handleLocation = async () => {
     let path = Object.keys(routes).find(name => window.location.pathname.includes(name))
     const route = routes[path] || routes["home"];
-    const html = await fetch(route).then((data) => data.text());
-    document.getElementById("main-page").innerHTML = html;
+    fetch(route)
+    .then((data) => data.text())
+    .then(document.getElementById("main-page").innerHTML = html);
 };
 
 window.onpopstate = handleLocation;
