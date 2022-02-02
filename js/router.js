@@ -16,7 +16,7 @@ const handleLocation = async () => {
     const route = routes[path] || routes["home"];
     fetch(route)
     .then((data) => data.text())
-    .then(document.getElementById("main-page").innerHTML = html);
+    .then(html => document.getElementById("main-page").innerHTML = html);
 };
 
 window.onpopstate = handleLocation;
